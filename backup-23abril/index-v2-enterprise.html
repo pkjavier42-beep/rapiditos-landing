@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapiditos Enterprise | Logística y Marketplace Panamá</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rapidito: '#FFCC00',
+                        enterpriseDark: '#0F172A',
+                        slateLight: '#F8FAFC'
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .ad-glow { box-shadow: 0 0 40px rgba(255, 204, 0, 0.15); }
+    </style>
+</head>
+<body class="bg-slateLight text-slate-900 antialiased">
+
+    <!-- TOP STRIP -->
+    <div class="bg-enterpriseDark text-white text-[10px] font-bold uppercase tracking-[0.2em] py-2.5">
+        <div class="max-w-[1700px] mx-auto px-8 flex justify-between flex-wrap gap-3 items-center">
+            <div class="flex items-center gap-4 flex-wrap">
+                <span class="text-rapidito">⚡ Únete al equipo Rapiditos:</span>
+                <a href="#" class="hover:text-rapidito transition flex items-center gap-1">
+                    <span>🛵</span> Soy Motorizado
+                </a>
+                <span class="text-slate-600">·</span>
+                <a href="#" class="hover:text-rapidito transition flex items-center gap-1">
+                    <span>🍽️</span> Soy Restaurante
+                </a>
+            </div>
+            <div class="flex gap-6 items-center">
+                <span>📍 Panamá City, PTY</span>
+                <a href="#" class="hover:text-rapidito transition">Ayuda 24/7</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="glass-header sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-[1700px] mx-auto px-8 h-20 flex items-center justify-between gap-10">
+            <div class="flex items-center gap-3 shrink-0">
+                <span class="text-rapidito text-4xl font-black italic tracking-tighter" style="-webkit-text-stroke: 1.5px black;">⚡R</span>
+                <div class="flex flex-col">
+                    <span class="text-xl font-extrabold leading-none tracking-tight">RAPIDITOS</span>
+                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-1">Enterprise Platform</span>
+                </div>
+            </div>
+
+            <div class="flex-grow max-w-3xl relative">
+                <input type="text" placeholder="Búsqueda global de comercios, servicios o productos..." class="w-full bg-slate-100/50 border border-slate-200 rounded-xl py-3 pl-12 pr-4 text-sm focus:bg-white focus:ring-2 focus:ring-rapidito focus:border-transparent outline-none transition-all shadow-sm">
+                <span class="absolute left-4 top-3.5 text-slate-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                </span>
+            </div>
+
+            <div class="flex items-center gap-6 shrink-0">
+                <button class="hidden lg:flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    <span class="hidden xl:block">Mensajes</span>
+                </button>
+                <div class="hidden lg:block h-8 w-[1px] bg-slate-200"></div>
+                <button class="bg-rapidito text-black px-6 py-2.5 rounded-xl font-bold text-sm shadow-md hover:shadow-lg transition transform active:scale-95">
+                    Mi Cuenta
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="max-w-[1700px] mx-auto p-8 flex flex-col lg:flex-row gap-10">
+
+        <!-- COLUMNA IZQUIERDA - Anuncio sticky -->
+        <aside class="w-full lg:w-[38%] sticky top-32 self-start">
+            <div class="bg-white rounded-[2rem] overflow-hidden border border-slate-200 shadow-2xl ad-glow">
+                <div class="p-6 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Featured Partner</span>
+                    <span class="flex items-center gap-1 text-[10px] font-bold text-green-600">● LIVE PROMO</span>
+                </div>
+                <div class="relative h-[650px] group cursor-pointer">
+                    <img src="images/01-burger-ad.jpg" class="w-full h-full object-cover transition duration-1000 group-hover:scale-105" alt="Burger Promotion">
+                    <div class="absolute inset-0 bg-gradient-to-t from-enterpriseDark via-transparent to-transparent opacity-90"></div>
+
+                    <div class="absolute bottom-0 p-10 text-white">
+                        <div class="bg-rapidito text-black inline-block px-3 py-1 rounded-md text-[10px] font-black uppercase mb-4">Solo por hoy</div>
+                        <h2 class="text-5xl font-extrabold italic leading-none mb-4 tracking-tighter">ULTRA BURGER<br>WEEK</h2>
+                        <p class="text-slate-300 text-sm mb-8 max-w-sm leading-relaxed">Disfruta de nuestra selección premium con 30% de descuento. Calidad certificada Rapiditos.</p>
+                        <button class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase tracking-widest hover:bg-rapidito transition duration-300">
+                            Explorar Oferta ⚡
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- COLUMNA DERECHA - Marketplace -->
+        <section class="w-full lg:w-[62%]">
+
+            <!-- Filtros -->
+            <div class="bg-white p-4 rounded-2xl mb-8 border border-slate-200 flex flex-wrap items-center gap-4 shadow-sm">
+                <span class="text-xs font-bold text-slate-400 uppercase px-2">Filtrar por:</span>
+                <select class="bg-slate-50 border-none rounded-lg text-xs font-bold py-2 px-4 outline-none focus:ring-2 focus:ring-rapidito">
+                    <option>Tiempo de Entrega</option>
+                    <option>Menos de 20 min</option>
+                    <option>20-40 min</option>
+                </select>
+                <select class="bg-slate-50 border-none rounded-lg text-xs font-bold py-2 px-4 outline-none focus:ring-2 focus:ring-rapidito">
+                    <option>Presupuesto</option>
+                    <option>$ - Económico</option>
+                    <option>$$ - Estándar</option>
+                    <option>$$$ - Premium</option>
+                </select>
+                <select class="bg-slate-50 border-none rounded-lg text-xs font-bold py-2 px-4 outline-none focus:ring-2 focus:ring-rapidito">
+                    <option>Categoría</option>
+                    <option>Comida</option>
+                    <option>Farmacia</option>
+                    <option>Supermercado</option>
+                </select>
+                <button class="ml-auto text-xs font-black text-rapidito uppercase tracking-widest border-b-2 border-rapidito">Limpiar Filtros</button>
+            </div>
+
+            <!-- Título sección -->
+            <div class="mb-6">
+                <h2 class="text-3xl font-black text-slate-900 mb-1">Cerca de ti</h2>
+                <p class="text-slate-500 text-sm">Restaurantes y comercios verificados · Ciudad de Panamá</p>
+            </div>
+
+            <!-- Grid 2 columnas - 8 cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Card 1 - Pizza -->
+                <div class="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm hover:shadow-md transition-all group cursor-pointer">
+                    <div class="relative h-36 rounded-xl overflow-hidden mb-3">
+                        <img src="images/02-pizza.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Pizza">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl text-[10px] font-black flex items-center gap-2">
+                            <span class="w-2 h-2 bg-orange-500 rounded-full"></span> 15 MIN PREP
+                        </div>
+                    </div>
+                    <div class="px-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight">Le Pizza Royale</h4>
+                            <div class="flex flex-col items-end">
+                                <span class="text-sm font-bold">⭐ 4.9</span>
+                                <span class="text-[9px] text-slate-400 font-bold uppercase">800+ Opiniones</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-[11px] mb-3">Italiana · Horno de Leña · Envío Gratis</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="bg-rapidito/10 text-[9px] px-3 py-1 rounded-full font-bold text-black border border-rapidito/20 uppercase">Top Partner</span>
+                            <span class="bg-blue-50 text-[9px] px-3 py-1 rounded-full font-bold text-blue-600 border border-blue-100 uppercase">Verified</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 - Sushi -->
+                <div class="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm hover:shadow-md transition-all group cursor-pointer">
+                    <div class="relative h-36 rounded-xl overflow-hidden mb-3">
+                        <img src="images/03-sushi.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Sushi">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl text-[10px] font-black flex items-center gap-2">
+                            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> ALTA DEMANDA
+                        </div>
+                    </div>
+                    <div class="px-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight">Sushi Master Pty</h4>
+                            <div class="flex flex-col items-end">
+                                <span class="text-sm font-bold">⭐ 4.9</span>
+                                <span class="text-[9px] text-slate-400 font-bold uppercase">500+ Opiniones</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-[11px] mb-3">Japonesa · Nikkei · $1.50 Delivery</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="bg-slate-100 text-[9px] px-3 py-1 rounded-full font-bold text-slate-500 border border-slate-200 uppercase">Premium</span>
+                            <span class="bg-blue-50 text-[9px] px-3 py-1 rounded-full font-bold text-blue-600 border border-blue-100 uppercase">Calidad Cert.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 - Pollo -->
+                <div class="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm hover:shadow-md transition-all group cursor-pointer">
+                    <div class="relative h-36 rounded-xl overflow-hidden mb-3">
+                        <img src="images/04-chicken.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Pollo">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl text-[10px] font-black flex items-center gap-2">
+                            <span class="w-2 h-2 bg-orange-500 rounded-full"></span> 30 MIN PREP
+                        </div>
+                    </div>
+                    <div class="px-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight">Pollo Panameño</h4>
+                            <div class="flex flex-col items-end">
+                                <span class="text-sm font-bold">⭐ 4.6</span>
+                                <span class="text-[9px] text-slate-400 font-bold uppercase">1.2K Opiniones</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-[11px] mb-3">Pollo Frito · Local · $1.99 Delivery</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="bg-slate-100 text-[9px] px-3 py-1 rounded-full font-bold text-slate-500 border border-slate-200 uppercase">Tradicional</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 - Farmacia -->
+                <div class="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm hover:shadow-md transition-all group cursor-pointer">
+                    <div class="relative h-36 rounded-xl overflow-hidden mb-3">
+                        <img src="images/05-pharmacy.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Farmacia">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl text-[10px] font-black flex items-center gap-2">
+                            <span class="w-2 h-2 bg-green-500 rounded-full"></span> ABIERTO 24/7
+                        </div>
+                    </div>
+                    <div class="px-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight">Farmacias Arrocha</h4>
+                            <div class="flex flex-col items-end">
+                                <span class="text-sm font-bold">⭐ 4.8</span>
+                                <span class="text-[9px] text-slate-400 font-bold uppercase">2K Opiniones</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-[11px] mb-3">Salud · Cuidado Personal · $1.50 Delivery</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="bg-green-50 text-[9px] px-3 py-1 rounded-full font-bold text-green-700 border border-green-100 uppercase">24/7</span>
+                            <span class="bg-blue-50 text-[9px] px-3 py-1 rounded-full font-bold text-blue-600 border border-blue-100 uppercase">Verified</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 - Tacos -->
+                <div class="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm hover:shadow-md transition-all group cursor-pointer">
+                    <div class="relative h-36 rounded-xl overflow-hidden mb-3">
+                        <img src="images/06-tacos.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Tacos">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl text-[10px] font-black flex items-center gap-2">
+                            <span class="w-2 h-2 bg-orange-500 rounded-full"></span> 25 MIN PREP
+                        </div>
+                    </div>
+                    <div class="px-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight">Taco Plaza</h4>
+                            <div class="flex flex-col items-end">
+                                <span class="text-sm font-bold">⭐ 4.8</span>
+                                <span class="text-[9px] text-slate-400 font-bold uppercase">600+ Opiniones</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-[11px] mb-3">Mexicana · Tex-Mex · Auténtico</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="bg-rapidito/10 text-[9px] px-3 py-1 rounded-full font-bold text-black border border-rapidito/20 uppercase">Top Partner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 - Healthy -->
+                <div class="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm hover:shadow-md transition-all group cursor-pointer">
+                    <div class="relative h-36 rounded-xl overflow-hidden mb-3">
+                        <img src="images/07-salad.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Healthy">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl text-[10px] font-black flex items-center gap-2">
+                            <span class="w-2 h-2 bg-green-500 rounded-full"></span> SALUDABLE
+                        </div>
+                    </div>
+                    <div class="px-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight">Healthy Bowl Co.</h4>
+                            <div class="flex flex-col items-end">
+                                <span class="text-sm font-bold">⭐ 4.7</span>
+                                <span class="text-[9px] text-slate-400 font-bold uppercase">300+ Opiniones</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-[11px] mb-3">Saludable · Bowls · Ensaladas</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="bg-green-50 text-[9px] px-3 py-1 rounded-full font-bold text-green-700 border border-green-100 uppercase">Sostenible</span>
+                            <span class="bg-blue-50 text-[9px] px-3 py-1 rounded-full font-bold text-blue-600 border border-blue-100 uppercase">Verified</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7 - Supermercado -->
+                <div class="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm hover:shadow-md transition-all group cursor-pointer">
+                    <div class="relative h-36 rounded-xl overflow-hidden mb-3">
+                        <img src="images/08-grocery.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Supermercado">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl text-[10px] font-black flex items-center gap-2">
+                            <span class="w-2 h-2 bg-orange-500 rounded-full"></span> 40 MIN ENTREGA
+                        </div>
+                    </div>
+                    <div class="px-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight">Super El Fuerte</h4>
+                            <div class="flex flex-col items-end">
+                                <span class="text-sm font-bold">⭐ 4.7</span>
+                                <span class="text-[9px] text-slate-400 font-bold uppercase">1K Opiniones</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-[11px] mb-3">Compras del hogar · Productos frescos</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="bg-slate-100 text-[9px] px-3 py-1 rounded-full font-bold text-slate-500 border border-slate-200 uppercase">Mercado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8 - Postres -->
+                <div class="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm hover:shadow-md transition-all group cursor-pointer">
+                    <div class="relative h-36 rounded-xl overflow-hidden mb-3">
+                        <img src="images/09-desserts.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Postres">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl text-[10px] font-black flex items-center gap-2">
+                            <span class="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></span> ARTESANAL
+                        </div>
+                    </div>
+                    <div class="px-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight">Heladería Artesanal</h4>
+                            <div class="flex flex-col items-end">
+                                <span class="text-sm font-bold">⭐ 4.9</span>
+                                <span class="text-[9px] text-slate-400 font-bold uppercase">400+ Opiniones</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-[11px] mb-3">Helados · Postres · Cafés</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="bg-pink-50 text-[9px] px-3 py-1 rounded-full font-bold text-pink-700 border border-pink-100 uppercase">Artesanal</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- DESCARGA APP -->
+    <section class="bg-white border-y border-slate-200 py-20">
+        <div class="max-w-[1700px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-rapidito mb-4 block">Aplicación móvil</span>
+                <h2 class="text-5xl font-black text-slate-900 leading-tight tracking-tight mb-6">
+                    Lleva Rapiditos en tu <span class="italic">bolsillo</span>.
+                </h2>
+                <p class="text-slate-600 text-lg mb-10 leading-relaxed max-w-xl">
+                    Pedidos en segundos, seguimiento en tiempo real y promociones exclusivas para usuarios de la app. Descárgala gratis en tu tienda preferida.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#" class="flex items-center gap-3 bg-black text-white px-7 py-4 rounded-2xl hover:bg-slate-800 transition shadow-lg">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.04c-.03-3.04 2.49-4.51 2.6-4.58-1.42-2.07-3.62-2.36-4.4-2.39-1.87-.19-3.66 1.1-4.61 1.1-.96 0-2.42-1.07-3.99-1.04-2.05.03-3.95 1.19-5.01 3.03-2.14 3.71-.55 9.18 1.53 12.18 1.02 1.47 2.23 3.12 3.81 3.06 1.54-.06 2.12-.99 3.97-.99 1.85 0 2.38.99 4 .96 1.66-.03 2.7-1.49 3.71-2.97 1.17-1.7 1.65-3.36 1.68-3.45-.04-.01-3.22-1.23-3.25-4.91zM14.13 3.61c.85-1.04 1.43-2.47 1.27-3.91-1.23.05-2.72.82-3.6 1.85-.79.92-1.49 2.4-1.3 3.81 1.37.1 2.78-.7 3.63-1.75z"/></svg>
+                        <div class="text-left">
+                            <div class="text-[10px] uppercase tracking-widest opacity-70">Disponible en</div>
+                            <div class="text-lg font-black tracking-tight">App Store</div>
+                        </div>
+                    </a>
+                    <a href="#" class="flex items-center gap-3 bg-black text-white px-7 py-4 rounded-2xl hover:bg-slate-800 transition shadow-lg">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.85c-.32.34-.5.86-.5 1.55v17.2c0 .69.18 1.21.5 1.55l.07.06 9.64-9.64v-.22L3.66 1.78l-.07.07zm12.8 12.81l-3.21-3.21v-.22l3.21-3.21.07.04 3.81 2.16c1.09.62 1.09 1.63 0 2.25l-3.81 2.16-.07.04zm-.94.95L12.05 12.3 2.4 21.95c.36.38.95.42 1.62.05l12.45-7.04zM2.4 2.05L12.05 11.7l3.41-3.41L3.02 1.25c-.24-.13-.46-.18-.62-.18-.4 0-.71.27-.71.78v.2z"/></svg>
+                        <div class="text-left">
+                            <div class="text-[10px] uppercase tracking-widest opacity-70">Disponible en</div>
+                            <div class="text-lg font-black tracking-tight">Google Play</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="flex items-center gap-6 mt-10 text-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="text-rapidito text-lg">⭐</span>
+                        <span class="font-bold text-slate-900">4.9</span>
+                        <span class="text-slate-500">en ambas tiendas</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-slate-900">+50K</span>
+                        <span class="text-slate-500">descargas</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative flex justify-center items-center">
+                <!-- Glow amarillo de fondo -->
+                <div class="absolute inset-0 bg-gradient-to-br from-rapidito/30 to-transparent rounded-full blur-3xl"></div>
+                
+                <!-- Mockup de celular profesional -->
+                <div class="relative">
+                    <!-- Cuerpo del celular -->
+                    <div class="relative w-[280px] h-[560px] bg-slate-900 rounded-[3rem] p-3 shadow-2xl border-[3px] border-slate-800">
+                        <!-- Botones laterales -->
+                        <div class="absolute -left-[3px] top-24 w-1 h-12 bg-slate-700 rounded-l-md"></div>
+                        <div class="absolute -left-[3px] top-40 w-1 h-20 bg-slate-700 rounded-l-md"></div>
+                        <div class="absolute -right-[3px] top-32 w-1 h-16 bg-slate-700 rounded-r-md"></div>
+                        
+                        <!-- Pantalla -->
+                        <div class="relative w-full h-full bg-gradient-to-br from-slate-50 to-white rounded-[2.3rem] overflow-hidden">
+                            <!-- Notch -->
+                            <div class="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-6 bg-slate-900 rounded-full z-10"></div>
+                            
+                            <!-- Status bar -->
+                            <div class="flex justify-between items-center px-6 pt-3 text-[10px] font-bold text-slate-700">
+                                <span>9:41</span>
+                                <div class="flex gap-1 items-center">
+                                    <span>📶</span>
+                                    <span>📡</span>
+                                    <span>🔋</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Header de la app -->
+                            <div class="px-5 pt-8 pb-4">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-rapidito text-2xl font-black italic" style="-webkit-text-stroke: 1px black;">⚡R</span>
+                                    <span class="text-base font-extrabold tracking-tight text-slate-900">RAPIDITOS</span>
+                                </div>
+                                <p class="text-[10px] text-slate-500 font-semibold">📍 Ciudad de Panamá</p>
+                            </div>
+                            
+                            <!-- Buscador mock -->
+                            <div class="mx-5 mb-4 bg-slate-100 rounded-xl py-2 px-3 flex items-center gap-2">
+                                <span class="text-slate-400 text-xs">🔍</span>
+                                <span class="text-[10px] text-slate-400 font-medium">Buscar comida...</span>
+                            </div>
+                            
+                            <!-- Banner promo -->
+                            <div class="mx-5 mb-3 bg-gradient-to-br from-rapidito to-yellow-400 rounded-xl p-3 shadow-md">
+                                <div class="text-[8px] font-black text-black/70 uppercase tracking-widest mb-1">⚡ Oferta</div>
+                                <div class="text-xs font-black text-black leading-tight">SÚPER COMBO<br>$12.99</div>
+                            </div>
+                            
+                            <!-- Lista de restaurantes mock -->
+                            <div class="px-5 space-y-2">
+                                <div class="bg-white rounded-xl p-2 flex gap-2 items-center border border-slate-100 shadow-sm">
+                                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-lg">🍕</div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-[10px] font-bold text-slate-900 truncate">Le Pizza Royale</p>
+                                        <p class="text-[8px] text-slate-400">⭐ 4.9 · 15 min</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-xl p-2 flex gap-2 items-center border border-slate-100 shadow-sm">
+                                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-lg">🍣</div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-[10px] font-bold text-slate-900 truncate">Sushi Master Pty</p>
+                                        <p class="text-[8px] text-slate-400">⭐ 4.9 · 20 min</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-xl p-2 flex gap-2 items-center border border-slate-100 shadow-sm">
+                                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-lg">💊</div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-[10px] font-bold text-slate-900 truncate">Farmacias Arrocha</p>
+                                        <p class="text-[8px] text-slate-400">⭐ 4.8 · 24/7</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Bottom nav -->
+                            <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-slate-100 px-6 py-3 flex justify-around">
+                                <span class="text-rapidito text-base">🏠</span>
+                                <span class="text-slate-300 text-base">🔍</span>
+                                <span class="text-slate-300 text-base">🛒</span>
+                                <span class="text-slate-300 text-base">👤</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Badge flotante -->
+                    <div class="absolute -top-4 -right-4 bg-rapidito text-black px-4 py-2 rounded-2xl shadow-xl rotate-6 border-2 border-white">
+                        <div class="text-[8px] font-black uppercase tracking-widest opacity-70">Disponible</div>
+                        <div class="text-sm font-black tracking-tight">iOS · Android</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white text-slate-500 pt-20 pb-10 border-t border-slate-100">
+        <div class="max-w-[1700px] mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <div class="flex items-center gap-2 text-slate-900 mb-8">
+                        <span class="text-rapidito text-3xl font-black italic" style="-webkit-text-stroke: 1px black;">⚡R</span>
+                        <span class="text-xl font-extrabold tracking-tight">RAPIDITOS</span>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-6 text-slate-600">Liderando la revolución logística de última milla en Panamá con tecnología de grado empresarial.</p>
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center hover:bg-rapidito transition cursor-pointer text-xs font-bold text-slate-700">In</div>
+                        <div class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center hover:bg-rapidito transition cursor-pointer text-xs font-bold text-slate-700">X</div>
+                        <div class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center hover:bg-rapidito transition cursor-pointer text-xs font-bold text-slate-700">Ig</div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-slate-900 font-bold text-sm uppercase tracking-widest mb-8">Corporativo</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Sobre Nosotros</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Rapiditos for Business</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Sala de Prensa</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Carreras</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-slate-900 font-bold text-sm uppercase tracking-widest mb-8">Soporte y Seguridad</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Centro de Ayuda</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Estado del Servicio</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Seguridad de Datos</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Reportar Incidente</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-slate-900 font-bold text-sm uppercase tracking-widest mb-8">Legal</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Términos de Servicio</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Privacidad</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Cumplimiento PTY</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">© 2026 RAPIDITOS ENTERPRISE PLATFORM · PANAMÁ</p>
+                <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                    🇵🇦 Construido en Panamá
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapiditos | Marketplace de Delivery Panamá</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rapidito: '#FFCC00',
+                        rapiditoDark: '#E6B800',
+                        brandDark: '#0F0F0F',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .ad-gradient { background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.95) 100%); }
+        .nav-link { position: relative; padding-bottom: 4px; }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #FFCC00;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-50">
+        <div class="max-w-[1700px] mx-auto px-8 h-20 flex items-center justify-between gap-8">
+            <!-- Logo + Links -->
+            <div class="flex items-center gap-10 shrink-0">
+                <div class="flex items-center gap-1">
+                    <span class="text-rapidito text-3xl font-black italic tracking-tighter" style="-webkit-text-stroke: 1.5px black;">⚡R</span>
+                    <span class="text-xl font-extrabold tracking-tight italic">RAPIDITOS</span>
+                </div>
+                <div class="hidden lg:flex items-center gap-7 text-sm font-bold text-gray-700">
+                    <a href="#" class="nav-link active text-black">Inicio</a>
+                    <a href="#" class="nav-link hover:text-black">Soluciones</a>
+                    <a href="#" class="nav-link hover:text-black">Para Socios</a>
+                    <a href="#" class="nav-link hover:text-black">Contacto</a>
+                </div>
+            </div>
+
+            <!-- Buscador -->
+            <div class="flex-grow max-w-2xl relative">
+                <input type="text" placeholder="Busca tu comida favorita o establecimiento..." class="w-full bg-gray-100 border-none rounded-full py-3 pl-12 pr-4 text-sm focus:ring-2 focus:ring-rapidito outline-none transition">
+                <span class="absolute left-4 top-3 text-gray-400">🔍</span>
+            </div>
+
+            <!-- Ubicación + Usuario -->
+            <div class="flex items-center gap-4 shrink-0">
+                <div class="hidden md:flex items-center gap-2 px-3 py-2 text-sm font-semibold text-gray-700 cursor-pointer hover:bg-gray-50 rounded-full transition">
+                    📍 <span>Ciudad de Panamá</span>
+                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <button class="w-10 h-10 rounded-full bg-rapidito flex items-center justify-center hover:bg-rapiditoDark transition shadow-sm">
+                    <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="max-w-[1700px] mx-auto p-8 flex flex-col lg:flex-row gap-8">
+        
+        <!-- COLUMNA IZQUIERDA - Publicidad sticky -->
+        <aside class="w-full lg:w-[38%] sticky top-24 self-start">
+            <!-- Etiqueta superior -->
+            <div class="bg-rapidito text-black text-xs font-black px-4 py-3 rounded-t-3xl shadow-sm uppercase tracking-widest text-center">
+                ⚡ Oferta Destacada · Publicidad
+            </div>
+            
+            <!-- Tarjeta del anuncio -->
+            <div class="relative bg-black rounded-b-3xl overflow-hidden shadow-2xl group">
+                <div class="relative h-[680px]">
+                    <img src="images/01-burger-ad.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Burger House Ad">
+                    <div class="absolute inset-0 ad-gradient"></div>
+                    
+                    <!-- Header del anuncio -->
+                    <div class="absolute top-6 left-6 right-6 flex items-center gap-3 text-white">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl shadow-lg">🍔</div>
+                        <div>
+                            <h4 class="font-extrabold text-base leading-tight">Burger House Pty</h4>
+                            <p class="text-[11px] text-gray-300 uppercase tracking-wider font-semibold">Patrocinado</p>
+                        </div>
+                    </div>
+
+                    <!-- Contenido principal -->
+                    <div class="absolute bottom-0 left-0 p-8 w-full text-white">
+                        <h2 class="text-5xl font-black italic mb-3 tracking-tight leading-none">SÚPER COMBO <span class="text-rapidito">FLASH</span></h2>
+                        <p class="text-gray-200 mb-6 text-sm leading-relaxed">Hamburguesa Triple + Papas Giga + Refresco L.<br>Sabor instantáneo directo a tu puerta.</p>
+                        
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-5xl font-black text-rapidito">$12.99</span>
+                            <button class="bg-rapidito text-black px-6 py-4 rounded-2xl font-black text-sm hover:bg-yellow-400 transition shadow-xl transform active:scale-95 flex items-center gap-2 uppercase tracking-wide">
+                                Ordena Ya ⚡
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- COLUMNA DERECHA - Marketplace -->
+        <section class="w-full lg:w-[62%]">
+            
+            <!-- Título -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-black text-gray-900 mb-1">Cerca de ti</h1>
+                <p class="text-gray-500 text-sm">Restaurantes y Comercios · Ciudad de Panamá</p>
+            </div>
+
+            <!-- Categorías -->
+            <div class="mb-10">
+                <div class="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
+                    <button class="flex-shrink-0 flex items-center gap-2 px-5 py-3 bg-black text-white rounded-full shadow-md transition">
+                        <span class="text-xl">🍔</span>
+                        <span class="text-sm font-bold">Burgers</span>
+                    </button>
+                    <button class="flex-shrink-0 flex items-center gap-2 px-5 py-3 bg-white border border-gray-200 rounded-full hover:border-rapidito transition">
+                        <span class="text-xl">🍕</span>
+                        <span class="text-sm font-bold">Pizza</span>
+                    </button>
+                    <button class="flex-shrink-0 flex items-center gap-2 px-5 py-3 bg-white border border-gray-200 rounded-full hover:border-rapidito transition">
+                        <span class="text-xl">🍣</span>
+                        <span class="text-sm font-bold">Sushi</span>
+                    </button>
+                    <button class="flex-shrink-0 flex items-center gap-2 px-5 py-3 bg-white border border-gray-200 rounded-full hover:border-rapidito transition">
+                        <span class="text-xl">🍦</span>
+                        <span class="text-sm font-bold">Postres</span>
+                    </button>
+                    <button class="flex-shrink-0 flex items-center gap-2 px-5 py-3 bg-white border border-gray-200 rounded-full hover:border-rapidito transition">
+                        <span class="text-xl">💊</span>
+                        <span class="text-sm font-bold">Farmacia</span>
+                    </button>
+                    <button class="flex-shrink-0 flex items-center gap-2 px-5 py-3 bg-white border border-gray-200 rounded-full hover:border-rapidito transition">
+                        <span class="text-xl">🛒</span>
+                        <span class="text-sm font-bold">Supermercado</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Featurados -->
+            <div class="mb-8">
+                <div class="flex items-center justify-between mb-5">
+                    <h2 class="text-2xl font-black text-gray-900">Featurados</h2>
+                    <div class="flex gap-2">
+                        <button class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:border-black transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button class="w-9 h-9 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grid 2 columnas (en pantalla grande) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    
+                    <!-- Card 1 - Pizza -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all group cursor-pointer">
+                        <div class="relative h-40 overflow-hidden">
+                            <img src="images/02-pizza.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Pizza">
+                            <button class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition">
+                                <svg class="w-5 h-5 text-gray-600 group-hover:text-rapidito transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-extrabold text-gray-900 text-sm">Pizza Napolitana</h4>
+                                <span class="text-xs font-bold text-gray-700 flex items-center gap-1">⭐ 4.8</span>
+                            </div>
+                            <p class="text-gray-500 text-xs mb-1">📍 20-45 min</p>
+                            <p class="text-gray-400 text-[11px]">Tiempo de preparación: 15min · Tiempo de envío</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 - Sushi -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all group cursor-pointer">
+                        <div class="relative h-40 overflow-hidden">
+                            <img src="images/03-sushi.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Sushi">
+                            <button class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition">
+                                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-extrabold text-gray-900 text-sm">Sushi Express</h4>
+                                <span class="text-xs font-bold text-gray-700 flex items-center gap-1">⭐ 4.9</span>
+                            </div>
+                            <p class="text-gray-500 text-xs mb-1">📍 20-45 min</p>
+                            <p class="text-gray-400 text-[11px]">Tiempo de preparación: 15min · Tiempo de envío</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 - Farmacia -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all group cursor-pointer">
+                        <div class="relative h-40 overflow-hidden">
+                            <img src="images/05-pharmacy.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Farmacia">
+                            <button class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition">
+                                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-extrabold text-gray-900 text-sm">Farmacias Arrocha</h4>
+                                <span class="text-xs font-bold text-gray-700 flex items-center gap-1">⭐ 4.8</span>
+                            </div>
+                            <p class="text-gray-500 text-xs mb-1">📍 20-45 min</p>
+                            <p class="text-gray-400 text-[11px]">Salud · Cuidado personal · Panamá</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 - Supermercado -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all group cursor-pointer">
+                        <div class="relative h-40 overflow-hidden">
+                            <img src="images/08-grocery.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Supermercado">
+                            <button class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition">
+                                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-extrabold text-gray-900 text-sm">Supermercado El Fuerte</h4>
+                                <span class="text-xs font-bold text-gray-700 flex items-center gap-1">⭐ 4.7</span>
+                            </div>
+                            <p class="text-gray-500 text-xs mb-1">📍 25-40 min</p>
+                            <p class="text-gray-400 text-[11px]">Compras del hogar · Productos frescos</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 - Tacos -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all group cursor-pointer">
+                        <div class="relative h-40 overflow-hidden">
+                            <img src="images/06-tacos.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Tacos">
+                            <button class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition">
+                                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-extrabold text-gray-900 text-sm">Taco Plaza</h4>
+                                <span class="text-xs font-bold text-gray-700 flex items-center gap-1">⭐ 4.8</span>
+                            </div>
+                            <p class="text-gray-500 text-xs mb-1">📍 30-45 min</p>
+                            <p class="text-gray-400 text-[11px]">Mexicana · Tex-Mex · Auténtico</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 - Ensalada -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all group cursor-pointer">
+                        <div class="relative h-40 overflow-hidden">
+                            <img src="images/07-salad.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Ensalada">
+                            <button class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition">
+                                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-extrabold text-gray-900 text-sm">Healthy Bowl</h4>
+                                <span class="text-xs font-bold text-gray-700 flex items-center gap-1">⭐ 4.6</span>
+                            </div>
+                            <p class="text-gray-500 text-xs mb-1">📍 15-30 min</p>
+                            <p class="text-gray-400 text-[11px]">Saludable · Bowls · Ensaladas</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 - Pollo -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all group cursor-pointer">
+                        <div class="relative h-40 overflow-hidden">
+                            <img src="images/04-chicken.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Pollo">
+                            <button class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition">
+                                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-extrabold text-gray-900 text-sm">Pollo Panameño</h4>
+                                <span class="text-xs font-bold text-gray-700 flex items-center gap-1">⭐ 4.5</span>
+                            </div>
+                            <p class="text-gray-500 text-xs mb-1">📍 30-45 min</p>
+                            <p class="text-gray-400 text-[11px]">Pollo Frito · Tradicional · Local</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 8 - Postres -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all group cursor-pointer">
+                        <div class="relative h-40 overflow-hidden">
+                            <img src="images/09-desserts.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Postres">
+                            <button class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition">
+                                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-extrabold text-gray-900 text-sm">Heladería Artesanal</h4>
+                                <span class="text-xs font-bold text-gray-700 flex items-center gap-1">⭐ 4.9</span>
+                            </div>
+                            <p class="text-gray-500 text-xs mb-1">📍 15-25 min</p>
+                            <p class="text-gray-400 text-[11px]">Helados · Postres · Cafés</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-12 py-12 bg-black text-white">
+        <div class="max-w-[1700px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="text-rapidito text-2xl italic font-black">⚡R</span>
+                <span class="text-lg font-extrabold tracking-tight italic">RAPIDITOS</span>
+            </div>
+            <div class="flex gap-8 text-xs uppercase tracking-widest font-bold text-gray-400">
+                <a href="#" class="hover:text-rapidito transition">Términos</a>
+                <a href="#" class="hover:text-rapidito transition">Privacidad</a>
+                <a href="#" class="hover:text-rapidito transition">Soporte</a>
+                <a href="#" class="hover:text-rapidito transition">Para Socios</a>
+            </div>
+            <p class="text-xs text-gray-500 font-semibold">🇵🇦 Panamá · 2026</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapiditos | Pide comida y más en Panamá</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rapidito: '#FFCC00',
+                        bgLight: '#F8F9FA',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .food-card:hover img { transform: scale(1.05); }
+    </style>
+</head>
+<body class="bg-bgLight text-slate-900">
+
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-2">
+                    <span class="text-rapidito text-3xl font-black italic">⚡R</span>
+                    <span class="text-xl font-extrabold tracking-tighter">RAPIDITOS</span>
+                </div>
+                <div class="hidden md:flex items-center gap-2 text-sm text-slate-600 bg-slate-100 px-4 py-2 rounded-full cursor-pointer hover:bg-slate-200 transition">
+                    📍 <span class="font-semibold">Ciudad de Panamá, Vía España</span>
+                </div>
+            </div>
+            <div class="flex gap-4 items-center">
+                <button class="text-sm font-bold text-slate-700 hover:text-black">Iniciar sesión</button>
+                <button class="bg-rapidito text-black px-6 py-2 rounded-full font-bold text-sm shadow-sm">Registrate</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-white py-12 border-b border-slate-100">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-8">¿Qué quieres pedir hoy?</h1>
+            <div class="relative max-w-2xl mx-auto">
+                <input type="text" placeholder="Busca tu restaurante o plato favorito..." class="w-full pl-12 pr-4 py-4 rounded-2xl border-2 border-slate-100 bg-slate-50 focus:border-rapidito focus:outline-none shadow-sm transition">
+                <span class="absolute left-4 top-4 text-slate-400 text-xl">🔍</span>
+                <button class="absolute right-3 top-2 bottom-2 bg-rapidito px-6 rounded-xl font-bold text-sm">Buscar</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 py-8">
+        <div class="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
+            <div class="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer">
+                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 group-hover:border-rapidito transition">🍔</div>
+                <span class="text-xs font-bold uppercase tracking-wider">Burger</span>
+            </div>
+            <div class="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer">
+                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 group-hover:border-rapidito transition">🍕</div>
+                <span class="text-xs font-bold uppercase tracking-wider">Pizza</span>
+            </div>
+            <div class="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer">
+                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 group-hover:border-rapidito transition">🍣</div>
+                <span class="text-xs font-bold uppercase tracking-wider">Sushi</span>
+            </div>
+            <div class="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer">
+                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 group-hover:border-rapidito transition">🥗</div>
+                <span class="text-xs font-bold uppercase tracking-wider">Saludable</span>
+            </div>
+            <div class="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer">
+                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 group-hover:border-rapidito transition">🍦</div>
+                <span class="text-xs font-bold uppercase tracking-wider">Postres</span>
+            </div>
+            <div class="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer">
+                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 group-hover:border-rapidito transition">☕</div>
+                <span class="text-xs font-bold uppercase tracking-wider">Café</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 py-8">
+        <div class="flex justify-between items-end mb-8">
+            <div>
+                <h2 class="text-2xl font-extrabold">Restaurantes en tu zona</h2>
+                <p class="text-slate-500 text-sm">Pídelo. Tenlo. Rapidito.</p>
+            </div>
+            <a href="#" class="text-rapidito font-bold text-sm border-b-2 border-rapidito">Ver todos</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="food-card bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 cursor-pointer group">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold shadow-md">30-45 min</div>
+                    <div class="absolute bottom-4 right-4 bg-rapidito px-2 py-1 rounded-md text-xs font-black">PROMO</div>
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg">Burger House Panamá</h3>
+                        <span class="text-sm font-bold text-slate-600">⭐ 4.8</span>
+                    </div>
+                    <p class="text-slate-500 text-xs mb-4">Hamburguesas • Americana • $1.50 envío</p>
+                    <div class="flex gap-2">
+                        <span class="bg-slate-100 text-[10px] px-2 py-1 rounded-md font-bold uppercase">Más pedido</span>
+                        <span class="bg-slate-100 text-[10px] px-2 py-1 rounded-md font-bold uppercase">Envío rápido</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 cursor-pointer group">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold shadow-md">20-35 min</div>
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg">Pizza Napolitana</h3>
+                        <span class="text-sm font-bold text-slate-600">⭐ 4.5</span>
+                    </div>
+                    <p class="text-slate-500 text-xs mb-4">Pizzas • Italiana • $0.99 envío</p>
+                    <div class="flex gap-2">
+                        <span class="bg-slate-100 text-[10px] px-2 py-1 rounded-md font-bold uppercase">Popular</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 cursor-pointer group">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold shadow-md">25-40 min</div>
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg">Sushi Roll Express</h3>
+                        <span class="text-sm font-bold text-slate-600">⭐ 4.9</span>
+                    </div>
+                    <p class="text-slate-500 text-xs mb-4">Sushi • Japonesa • Envío Gratis</p>
+                    <div class="flex gap-2">
+                        <span class="bg-rapidito text-[10px] px-2 py-1 rounded-md font-bold uppercase">Envío Gratis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div>
+                <div class="flex items-center gap-2 text-white mb-6">
+                    <span class="text-rapidito text-2xl font-black italic">⚡R</span>
+                    <span class="text-xl font-extrabold tracking-tighter">RAPIDITOS</span>
+                </div>
+                <p class="text-sm">La red de logística y comida más grande de Panamá.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Descubre</h4>
+                <ul class="text-xs space-y-2">
+                    <li><a href="#" class="hover:text-rapidito">Restaurantes</a></li>
+                    <li><a href="#" class="hover:text-rapidito">Supermercados</a></li>
+                    <li><a href="#" class="hover:text-rapidito">Farmacias</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Socios</h4>
+                <ul class="text-xs space-y-2">
+                    <li><a href="#" class="hover:text-rapidito">Registra tu negocio</a></li>
+                    <li><a href="#" class="hover:text-rapidito">Sé un repartidor</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Ayuda</h4>
+                <ul class="text-xs space-y-2">
+                    <li><a href="#" class="hover:text-rapidito">Soporte 24/7</a></li>
+                    <li><a href="#" class="hover:text-rapidito">Preguntas frecuentes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest">
+            <p>&copy; 2026 RAPIDITOS ENTERPRISE - PANAMÁ</p>
+            <div class="flex gap-6">
+                <a href="#">Términos</a>
+                <a href="#">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

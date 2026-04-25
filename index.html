@@ -3,188 +3,589 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rapiditos | Pide comida y más en Panamá</title>
+    <title>Rapiditos | Marketplace de Delivery Panamá</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         rapidito: '#FFCC00',
-                        bgLight: '#F8F9FA',
-                    }
+                        rapiditoDark: '#E6B800',
+                        enterpriseDark: '#0F172A',
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
             }
         }
     </script>
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .food-card:hover img { transform: scale(1.05); }
+        body { font-family: 'Inter', sans-serif; }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .ad-glow { box-shadow: 0 0 40px rgba(255, 204, 0, 0.2); }
+        .scroll-row { scroll-snap-type: x mandatory; }
+        .scroll-row > * { scroll-snap-align: start; }
     </style>
 </head>
-<body class="bg-bgLight text-slate-900">
+<body class="bg-slate-50 text-slate-900 antialiased">
 
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center gap-8">
-                <div class="flex items-center gap-2">
-                    <span class="text-rapidito text-3xl font-black italic">⚡R</span>
-                    <span class="text-xl font-extrabold tracking-tighter">RAPIDITOS</span>
-                </div>
-                <div class="hidden md:flex items-center gap-2 text-sm text-slate-600 bg-slate-100 px-4 py-2 rounded-full cursor-pointer hover:bg-slate-200 transition">
-                    📍 <span class="font-semibold">Ciudad de Panamá, Vía España</span>
-                </div>
+    <!-- TOP STRIP -->
+    <div class="bg-enterpriseDark text-white text-[10px] font-bold uppercase tracking-[0.2em] py-2.5">
+        <div class="max-w-[1700px] mx-auto px-8 flex justify-between flex-wrap gap-3 items-center">
+            <div class="flex items-center gap-4 flex-wrap">
+                <span class="text-rapidito flex items-center gap-1.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> Únete al equipo Rapiditos:</span>
+                <a href="#" class="hover:text-rapidito transition flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.44 9.03L15.41 5H11v2h3.59l2 2H5c-2.8 0-5 2.2-5 5s2.2 5 5 5c2.46 0 4.45-1.69 4.9-4h1.65l2.77-2.77c-.21.54-.32 1.14-.32 1.77 0 2.8 2.2 5 5 5s5-2.2 5-5c0-2.65-1.97-4.77-4.56-4.97zM7.82 15C7.4 16.15 6.28 17 5 17c-1.63 0-3-1.37-3-3s1.37-3 3-3c1.28 0 2.4.85 2.82 2H5v2h2.82zM19 17c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg> Soy Motorizado</a>
+                <span class="text-slate-600">·</span>
+                <a href="#" class="hover:text-rapidito transition flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg> Soy Restaurante</a>
             </div>
-            <div class="flex gap-4 items-center">
-                <button class="text-sm font-bold text-slate-700 hover:text-black">Iniciar sesión</button>
-                <button class="bg-rapidito text-black px-6 py-2 rounded-full font-bold text-sm shadow-sm">Registrate</button>
+            <div class="flex gap-6 items-center">
+                <span class="flex items-center gap-1.5"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg> Panamá City, PTY</span>
+                <a href="#" class="hover:text-rapidito transition">Ayuda 24/7</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="glass-header sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-[1700px] mx-auto px-8 h-20 flex items-center justify-between gap-10">
+            <div class="flex items-center shrink-0">
+                <img src="logo.png" alt="Rapiditos - Pídelo. Tenlo. Rapidito." class="h-14 w-auto">
+            </div>
+            <div class="flex-grow max-w-3xl relative">
+                <input type="text" placeholder="Busca tu comida favorita o establecimiento..." class="w-full bg-slate-100/50 border border-slate-200 rounded-xl py-3 pl-12 pr-4 text-sm focus:bg-white focus:ring-2 focus:ring-rapidito focus:border-transparent outline-none transition-all shadow-sm">
+                <span class="absolute left-4 top-3.5 text-slate-400">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                </span>
+            </div>
+            <div class="flex items-center gap-6 shrink-0">
+                <button class="hidden lg:flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-black">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    <span>Mensajes</span>
+                </button>
+                <div class="hidden lg:block h-8 w-[1px] bg-slate-200"></div>
+                <button class="bg-rapidito text-black px-6 py-2.5 rounded-xl font-bold text-sm shadow-md hover:shadow-lg transition transform active:scale-95">Mi Cuenta</button>
             </div>
         </div>
     </header>
 
-    <section class="bg-white py-12 border-b border-slate-100">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-8">¿Qué quieres pedir hoy?</h1>
-            <div class="relative max-w-2xl mx-auto">
-                <input type="text" placeholder="Busca tu restaurante o plato favorito..." class="w-full pl-12 pr-4 py-4 rounded-2xl border-2 border-slate-100 bg-slate-50 focus:border-rapidito focus:outline-none shadow-sm transition">
-                <span class="absolute left-4 top-4 text-slate-400 text-xl">🔍</span>
-                <button class="absolute right-3 top-2 bottom-2 bg-rapidito px-6 rounded-xl font-bold text-sm">Buscar</button>
+    <!-- MAIN -->
+    <main class="max-w-[1700px] mx-auto p-8 flex flex-col lg:flex-row gap-8">
+
+        <!-- COLUMNA IZQUIERDA: Anuncio sticky (NO TOCAR — pediste mantener) -->
+        <aside class="w-full lg:w-[34%] sticky top-32 self-start">
+            <div class="bg-white rounded-[2rem] overflow-hidden border border-slate-200 shadow-2xl ad-glow">
+                <div class="p-5 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Featured Partner</span>
+                    <span class="flex items-center gap-1 text-[10px] font-bold text-green-600">● LIVE PROMO</span>
+                </div>
+                <div class="relative h-[620px] group cursor-pointer">
+                    <img src="images/01-burger-ad.jpg" class="w-full h-full object-cover transition duration-1000 group-hover:scale-105" alt="Promo">
+                    <div class="absolute inset-0 bg-gradient-to-t from-enterpriseDark via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 p-8 text-white">
+                        <div class="bg-rapidito text-black inline-block px-3 py-1 rounded-md text-[10px] font-black uppercase mb-4">Solo por hoy</div>
+                        <h2 class="text-4xl font-extrabold italic leading-none mb-3 tracking-tighter">ULTRA BURGER<br>WEEK</h2>
+                        <p class="text-slate-300 text-sm mb-6 max-w-sm leading-relaxed">Selección premium con 30% de descuento. Calidad certificada Rapiditos.</p>
+                        <button class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase tracking-widest hover:bg-rapidito transition duration-300 flex items-center justify-center gap-2">Explorar Oferta <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- COLUMNA DERECHA: Marketplace nuevo estilo PedidosYa+ -->
+        <section class="w-full lg:w-[66%] space-y-10">
+
+            <!-- CATEGORÍAS GRANDES (estilo PedidosYa con tarjetas grandes) -->
+            <div>
+                <h2 class="text-2xl font-black text-slate-900 mb-1">¿Qué se te antoja?</h2>
+                <p class="text-slate-500 text-sm mb-5">Explora por categoría</p>
+                <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                    <button class="bg-white rounded-2xl p-3 border border-slate-100 hover:border-rapidito hover:shadow-md transition group">
+                        <div class="aspect-square rounded-xl overflow-hidden mb-2"><img src="images/01-burger-ad.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                        <p class="text-[11px] font-bold text-center text-slate-700">Restaurantes</p>
+                    </button>
+                    <button class="bg-white rounded-2xl p-3 border border-slate-100 hover:border-rapidito hover:shadow-md transition group">
+                        <div class="aspect-square rounded-xl overflow-hidden mb-2"><img src="images/02-pizza.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                        <p class="text-[11px] font-bold text-center text-slate-700">Pizza</p>
+                    </button>
+                    <button class="bg-white rounded-2xl p-3 border border-slate-100 hover:border-rapidito hover:shadow-md transition group">
+                        <div class="aspect-square rounded-xl overflow-hidden mb-2"><img src="images/03-sushi.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                        <p class="text-[11px] font-bold text-center text-slate-700">Sushi</p>
+                    </button>
+                    <button class="bg-white rounded-2xl p-3 border border-slate-100 hover:border-rapidito hover:shadow-md transition group">
+                        <div class="aspect-square rounded-xl overflow-hidden mb-2"><img src="images/05-pharmacy.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                        <p class="text-[11px] font-bold text-center text-slate-700">Farmacia</p>
+                    </button>
+                    <button class="bg-white rounded-2xl p-3 border border-slate-100 hover:border-rapidito hover:shadow-md transition group">
+                        <div class="aspect-square rounded-xl overflow-hidden mb-2"><img src="images/08-grocery.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                        <p class="text-[11px] font-bold text-center text-slate-700">Súper</p>
+                    </button>
+                    <button class="bg-white rounded-2xl p-3 border border-slate-100 hover:border-rapidito hover:shadow-md transition group">
+                        <div class="aspect-square rounded-xl overflow-hidden mb-2"><img src="images/09-desserts.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                        <p class="text-[11px] font-bold text-center text-slate-700">Postres</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- BANNERS PROMOCIONALES (3 horizontales, estilo PedidosYa) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a href="#" class="bg-rapidito rounded-2xl p-5 flex justify-between items-center overflow-hidden relative group hover:shadow-xl transition">
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-black text-black mb-1 tracking-tight">Restaurantes</h3>
+                        <p class="text-black/70 text-xs font-semibold">¡Disfruta estas promociones!</p>
+                    </div>
+                    <div class="group-hover:scale-110 transition"><svg class="w-12 h-12 text-black/80" fill="currentColor" viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg></div>
+                </a>
+                <a href="#" class="bg-blue-600 rounded-2xl p-5 flex justify-between items-center overflow-hidden relative group hover:shadow-xl transition">
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-black text-white mb-1 tracking-tight">Pago Yappy</h3>
+                        <p class="text-blue-100 text-xs font-semibold">¡Sin comisiones extra!</p>
+                    </div>
+                    <div class="group-hover:scale-110 transition"><svg class="w-12 h-12 text-white/90" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg></div>
+                </a>
+                <a href="#" class="bg-emerald-600 rounded-2xl p-5 flex justify-between items-center overflow-hidden relative group hover:shadow-xl transition">
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-black text-white mb-1 tracking-tight">Mercados</h3>
+                        <p class="text-emerald-100 text-xs font-semibold">¡Conoce las promos!</p>
+                    </div>
+                    <div class="group-hover:scale-110 transition"><svg class="w-12 h-12 text-white/90" fill="currentColor" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg></div>
+                </a>
+            </div>
+
+            <!-- DESCUBRE ESTAS OPCIONES (carrusel horizontal estilo PedidosYa) -->
+            <div>
+                <div class="flex justify-between items-end mb-5">
+                    <div>
+                        <h2 class="text-2xl font-black text-slate-900">Descubre estas opciones</h2>
+                        <p class="text-slate-500 text-sm">Selección destacada de hoy</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center hover:border-black transition"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg></button>
+                        <button class="w-9 h-9 rounded-full bg-black text-white flex items-center justify-center hover:bg-slate-800 transition"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg></button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition group cursor-pointer">
+                        <div class="relative h-32 overflow-hidden">
+                            <img src="images/02-pizza.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-2 left-2 bg-rapidito text-black text-[9px] font-black px-2 py-1 rounded-md uppercase">Hasta 35% DTO</div>
+                            <div class="absolute top-2 right-2 bg-emerald-500/90 text-white text-[9px] font-black px-2 py-1 rounded-md uppercase">Mismo precio</div>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight mb-1">Le Pizza Royale</h4>
+                            <div class="flex items-center justify-between text-[10px] text-slate-500">
+                                <span><svg class="w-3 h-3 text-amber-400 inline-block align-[-0.1em] mr-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>4.9 · 30-50 min</span>
+                                <span class="font-bold text-slate-700">$1.50</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition group cursor-pointer">
+                        <div class="relative h-32 overflow-hidden">
+                            <img src="images/03-sushi.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-2 left-2 bg-emerald-500/90 text-white text-[9px] font-black px-2 py-1 rounded-md uppercase">Mismo precio</div>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight mb-1">Sushi Master Pty</h4>
+                            <div class="flex items-center justify-between text-[10px] text-slate-500">
+                                <span><svg class="w-3 h-3 text-amber-400 inline-block align-[-0.1em] mr-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>4.9 · 25-40 min</span>
+                                <span class="font-bold text-slate-700">$2.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition group cursor-pointer">
+                        <div class="relative h-32 overflow-hidden">
+                            <img src="images/04-chicken.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-2 left-2 bg-rapidito text-black text-[9px] font-black px-2 py-1 rounded-md uppercase">Hasta 24% DTO</div>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight mb-1">Pollo Panameño</h4>
+                            <div class="flex items-center justify-between text-[10px] text-slate-500">
+                                <span><svg class="w-3 h-3 text-amber-400 inline-block align-[-0.1em] mr-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>4.6 · 30-45 min</span>
+                                <span class="font-bold text-slate-700">$1.99</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition group cursor-pointer">
+                        <div class="relative h-32 overflow-hidden">
+                            <img src="images/06-tacos.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-2 left-2 bg-emerald-500/90 text-white text-[9px] font-black px-2 py-1 rounded-md uppercase">Mismo precio</div>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight mb-1">Taco Plaza</h4>
+                            <div class="flex items-center justify-between text-[10px] text-slate-500">
+                                <span><svg class="w-3 h-3 text-amber-400 inline-block align-[-0.1em] mr-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>4.8 · 25-40 min</span>
+                                <span class="font-bold text-slate-700">$1.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RESTAURANTES CON EL MEJOR PRECIO -->
+            <div>
+                <div class="flex justify-between items-end mb-5">
+                    <div>
+                        <h2 class="text-2xl font-black text-slate-900">Restaurantes con el mejor precio</h2>
+                        <p class="text-slate-500 text-sm">Promesa Rapiditos: 10% comisión justa al restaurante</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition group cursor-pointer">
+                        <div class="relative h-32 overflow-hidden">
+                            <img src="images/07-salad.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-2 left-2 bg-rapidito text-black text-[9px] font-black px-2 py-1 rounded-md uppercase">Hasta 36% DTO</div>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight mb-1">Healthy Bowl Co.</h4>
+                            <div class="text-[10px] text-slate-500"><svg class="w-3 h-3 text-amber-400 inline-block align-[-0.1em] mr-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>4.7 · 15-30 min · Gratis</div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition group cursor-pointer">
+                        <div class="relative h-32 overflow-hidden">
+                            <img src="images/02-pizza.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-2 left-2 bg-rapidito text-black text-[9px] font-black px-2 py-1 rounded-md uppercase">Hasta 33% DTO</div>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight mb-1">Pizzería Leonardo</h4>
+                            <div class="text-[10px] text-slate-500"><svg class="w-3 h-3 text-amber-400 inline-block align-[-0.1em] mr-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>4.3 · 30-55 min · $1.00</div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition group cursor-pointer">
+                        <div class="relative h-32 overflow-hidden">
+                            <img src="images/04-chicken.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-2 left-2 bg-rapidito text-black text-[9px] font-black px-2 py-1 rounded-md uppercase">Hasta 28% DTO</div>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight mb-1">Pio Pio Marbella</h4>
+                            <div class="text-[10px] text-slate-500"><svg class="w-3 h-3 text-amber-400 inline-block align-[-0.1em] mr-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>4.5 · 35-60 min · Gratis</div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition group cursor-pointer">
+                        <div class="relative h-32 overflow-hidden">
+                            <img src="images/06-tacos.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-2 left-2 bg-rapidito text-black text-[9px] font-black px-2 py-1 rounded-md uppercase">Hasta 22% DTO</div>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight mb-1">Tacos Express</h4>
+                            <div class="text-[10px] text-slate-500"><svg class="w-3 h-3 text-amber-400 inline-block align-[-0.1em] mr-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>4.4 · 25-45 min · $1.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOS MÁS PEDIDOS ESTA SEMANA -->
+            <div>
+                <h2 class="text-2xl font-black text-slate-900 mb-1">Los más pedidos esta semana</h2>
+                <p class="text-slate-500 text-sm mb-5">Lo que está moviendo Panamá</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition group cursor-pointer">
+                        <div class="relative h-32 overflow-hidden">
+                            <img src="images/01-burger-ad.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-2 left-2 bg-emerald-500/90 text-white text-[9px] font-black px-2 py-1 rounded-md uppercase flex items-center gap-1"><svg class="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg> Trending</div>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight mb-1">Master Burger</h4>
+                            <div class="text-[10px] text-slate-500"><svg class="w-3 h-3 text-amber-400 inline-block align-[-0.1em] mr-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>4.9 · 600+ pedidos</div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition group cursor-pointer">
+                        <div class="relative h-32 overflow-hidden">
+                            <img src="images/05-pharmacy.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-2 left-2 bg-blue-500/90 text-white text-[9px] font-black px-2 py-1 rounded-md uppercase">24/7</div>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight mb-1">Farmacias Arrocha</h4>
+                            <div class="text-[10px] text-slate-500"><svg class="w-3 h-3 text-amber-400 inline-block align-[-0.1em] mr-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>4.8 · 450+ pedidos</div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition group cursor-pointer">
+                        <div class="relative h-32 overflow-hidden">
+                            <img src="images/09-desserts.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-2 left-2 bg-pink-500/90 text-white text-[9px] font-black px-2 py-1 rounded-md uppercase">Artesanal</div>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight mb-1">Heladería Artesanal</h4>
+                            <div class="text-[10px] text-slate-500"><svg class="w-3 h-3 text-amber-400 inline-block align-[-0.1em] mr-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>4.9 · 380+ pedidos</div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition group cursor-pointer">
+                        <div class="relative h-32 overflow-hidden">
+                            <img src="images/08-grocery.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-2 left-2 bg-emerald-500/90 text-white text-[9px] font-black px-2 py-1 rounded-md uppercase">Súper</div>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold text-sm text-slate-900 leading-tight mb-1">Super El Fuerte</h4>
+                            <div class="text-[10px] text-slate-500"><svg class="w-3 h-3 text-amber-400 inline-block align-[-0.1em] mr-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>4.7 · 320+ pedidos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- TOP CIUDADES + TOP COMIDAS -->
+    <section class="bg-white border-y border-slate-200 py-16">
+        <div class="max-w-[1700px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-slate-50 rounded-3xl p-8 flex items-center gap-6">
+                <div class="w-20 h-20 rounded-2xl bg-rapidito flex items-center justify-center shrink-0"><svg class="w-10 h-10 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg></div>
+                <div>
+                    <h3 class="text-xl font-black text-slate-900 mb-2">Top Ciudades</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Ciudad de Panamá · Arraiján · La Chorrera · David · Colón · Chitré</p>
+                </div>
+            </div>
+            <div class="bg-slate-50 rounded-3xl p-8 flex items-center gap-6">
+                <div class="w-20 h-20 rounded-2xl bg-rapidito flex items-center justify-center shrink-0"><svg class="w-10 h-10 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg></div>
+                <div>
+                    <h3 class="text-xl font-black text-slate-900 mb-2">Top Comidas</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Pollo · Hamburguesas · Pizzas · Postres · Carnes · Comida China</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 py-8">
-        <div class="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
-            <div class="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer">
-                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 group-hover:border-rapidito transition">🍔</div>
-                <span class="text-xs font-bold uppercase tracking-wider">Burger</span>
+    <!-- DESCARGA APP -->
+    <section class="bg-slate-50 border-b border-slate-200 py-20">
+        <div class="max-w-[1700px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-rapidito mb-4 block">Aplicación móvil</span>
+                <h2 class="text-5xl font-black text-slate-900 leading-tight tracking-tight mb-6">Lleva Rapiditos en tu <span class="italic">bolsillo</span>.</h2>
+                <p class="text-slate-600 text-lg mb-10 leading-relaxed max-w-xl">Pedidos en segundos, seguimiento en tiempo real y promociones exclusivas para usuarios de la app.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#" class="flex items-center gap-3 bg-black text-white px-7 py-4 rounded-2xl hover:bg-slate-800 transition shadow-lg">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.04c-.03-3.04 2.49-4.51 2.6-4.58-1.42-2.07-3.62-2.36-4.4-2.39-1.87-.19-3.66 1.1-4.61 1.1-.96 0-2.42-1.07-3.99-1.04-2.05.03-3.95 1.19-5.01 3.03-2.14 3.71-.55 9.18 1.53 12.18 1.02 1.47 2.23 3.12 3.81 3.06 1.54-.06 2.12-.99 3.97-.99 1.85 0 2.38.99 4 .96 1.66-.03 2.7-1.49 3.71-2.97 1.17-1.7 1.65-3.36 1.68-3.45-.04-.01-3.22-1.23-3.25-4.91zM14.13 3.61c.85-1.04 1.43-2.47 1.27-3.91-1.23.05-2.72.82-3.6 1.85-.79.92-1.49 2.4-1.3 3.81 1.37.1 2.78-.7 3.63-1.75z"/></svg>
+                        <div class="text-left"><div class="text-[10px] uppercase tracking-widest opacity-70">Disponible en</div><div class="text-lg font-black tracking-tight">App Store</div></div>
+                    </a>
+                    <a href="#" class="flex items-center gap-3 bg-black text-white px-7 py-4 rounded-2xl hover:bg-slate-800 transition shadow-lg">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.85c-.32.34-.5.86-.5 1.55v17.2c0 .69.18 1.21.5 1.55l.07.06 9.64-9.64v-.22L3.66 1.78l-.07.07zm12.8 12.81l-3.21-3.21v-.22l3.21-3.21.07.04 3.81 2.16c1.09.62 1.09 1.63 0 2.25l-3.81 2.16-.07.04zm-.94.95L12.05 12.3 2.4 21.95c.36.38.95.42 1.62.05l12.45-7.04zM2.4 2.05L12.05 11.7l3.41-3.41L3.02 1.25c-.24-.13-.46-.18-.62-.18-.4 0-.71.27-.71.78v.2z"/></svg>
+                        <div class="text-left"><div class="text-[10px] uppercase tracking-widest opacity-70">Disponible en</div><div class="text-lg font-black tracking-tight">Google Play</div></div>
+                    </a>
+                </div>
+                <div class="flex items-center gap-6 mt-8 text-xs">
+                    <div class="flex items-center gap-2"><svg class="w-5 h-5 text-rapidito" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="font-bold text-slate-900">4.9</span><span class="text-slate-500">en ambas tiendas</span></div>
+                    <div class="flex items-center gap-2"><span class="font-bold text-slate-900">+50K</span><span class="text-slate-500">descargas</span></div>
+                </div>
             </div>
-            <div class="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer">
-                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 group-hover:border-rapidito transition">🍕</div>
-                <span class="text-xs font-bold uppercase tracking-wider">Pizza</span>
-            </div>
-            <div class="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer">
-                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 group-hover:border-rapidito transition">🍣</div>
-                <span class="text-xs font-bold uppercase tracking-wider">Sushi</span>
-            </div>
-            <div class="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer">
-                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 group-hover:border-rapidito transition">🥗</div>
-                <span class="text-xs font-bold uppercase tracking-wider">Saludable</span>
-            </div>
-            <div class="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer">
-                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 group-hover:border-rapidito transition">🍦</div>
-                <span class="text-xs font-bold uppercase tracking-wider">Postres</span>
-            </div>
-            <div class="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer">
-                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 group-hover:border-rapidito transition">☕</div>
-                <span class="text-xs font-bold uppercase tracking-wider">Café</span>
-            </div>
-        </div>
+            <div class="relative flex justify-center items-center min-h-[600px]">
+                <!-- Glow dorado de fondo -->
+                <div class="absolute inset-0 bg-gradient-to-br from-rapidito/40 via-yellow-200/20 to-transparent rounded-full blur-3xl"></div>
+                
+                <!-- Partículas doradas decorativas -->
+                <div class="absolute top-10 left-10 w-2 h-2 bg-rapidito rounded-full opacity-60 blur-sm"></div>
+                <div class="absolute top-32 right-16 w-3 h-3 bg-yellow-300 rounded-full opacity-50 blur-sm"></div>
+                <div class="absolute bottom-24 left-20 w-2 h-2 bg-rapidito rounded-full opacity-70 blur-sm"></div>
+                <div class="absolute bottom-40 right-12 w-2 h-2 bg-yellow-200 rounded-full opacity-60 blur-sm"></div>
+                
+                <div class="relative">
+                    <!-- Sombra del celular -->
+                    <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[220px] h-8 bg-black/20 rounded-full blur-2xl"></div>
+                    
+                    <!-- Cuerpo del celular (estilo iPhone Pro) -->
+                    <div class="relative w-[280px] h-[580px] bg-gradient-to-b from-slate-800 via-slate-900 to-black rounded-[3.5rem] p-2 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border-[2px] border-slate-700">
+                        <!-- Botones laterales -->
+                        <div class="absolute -left-[3px] top-28 w-[3px] h-10 bg-slate-700 rounded-l-md"></div>
+                        <div class="absolute -left-[3px] top-44 w-[3px] h-16 bg-slate-700 rounded-l-md"></div>
+                        <div class="absolute -left-[3px] top-64 w-[3px] h-16 bg-slate-700 rounded-l-md"></div>
+                        <div class="absolute -right-[3px] top-36 w-[3px] h-20 bg-slate-700 rounded-r-md"></div>
+                        
+                        <!-- Pantalla -->
+                        <div class="relative w-full h-full bg-gradient-to-br from-slate-50 to-white rounded-[3rem] overflow-hidden">
+                            <!-- Dynamic Island (notch moderno) -->
+                            <div class="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-7 bg-black rounded-full z-20 flex items-center justify-end pr-2">
+                                <div class="w-1.5 h-1.5 bg-slate-700 rounded-full"></div>
+                            </div>
+                            
+                            <!-- Status bar -->
+                            <div class="flex justify-between items-center px-7 pt-4 text-[10px] font-bold text-slate-800">
+                                <span>9:41</span>
+                                <div class="flex gap-1.5 items-center">
+                                    <!-- Signal SVG -->
+                                    <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M2 22h2v-4H2v4zm4 0h2v-8H6v8zm4 0h2V10h-2v12zm4 0h2V6h-2v16zm4 0h2V2h-2v20z"/></svg>
+                                    <!-- Wifi SVG -->
+                                    <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21l3.6-4.5c-.9-.7-2.2-1.1-3.6-1.1s-2.7.4-3.6 1.1L12 21zm0-13.5c3.3 0 6.3 1.1 8.6 3l1.4-1.7C19.3 6.3 15.8 5 12 5s-7.3 1.3-10 3.8l1.4 1.7c2.3-1.9 5.3-3 8.6-3zm0 4c2.2 0 4.2.7 5.7 2L19 11.5C17 9.9 14.6 9 12 9s-5 .9-7 2.5l1.3 1.5c1.5-1.3 3.5-2 5.7-2z"/></svg>
+                                    <!-- Battery SVG -->
+                                    <svg class="w-5 h-3" viewBox="0 0 24 12" fill="none"><rect x="0.5" y="0.5" width="20" height="11" rx="2" stroke="currentColor"/><rect x="2" y="2" width="14" height="8" rx="1" fill="currentColor"/><rect x="21" y="3" width="2" height="6" rx="1" fill="currentColor"/></svg>
+                                </div>
+                            </div>
+                            
+                            <!-- Header de la app con logo real -->
+                            <div class="px-5 pt-9 pb-4 flex items-center justify-between">
+                                <img src="logo.png" alt="Rapiditos" class="h-8 w-auto">
+                                <!-- Bell icon con badge -->
+                                <div class="relative">
+                                    <svg class="w-5 h-5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 00-4-5.7V5a2 2 0 10-4 0v.3A6 6 0 006 11v3.2c0 .5-.2 1-.6 1.4L4 17h5m6 0a3 3 0 11-6 0"/></svg>
+                                    <div class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Ubicación con ícono SVG -->
+                            <div class="px-5 mb-3 flex items-center gap-1.5">
+                                <svg class="w-3 h-3 text-rapidito" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                                <span class="text-[10px] font-bold text-slate-700">Ciudad de Panamá</span>
+                                <svg class="w-3 h-3 text-slate-400 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                            </div>
+                            
+                            <!-- Buscador con ícono SVG -->
+                            <div class="mx-5 mb-3 bg-slate-100 rounded-xl py-2.5 px-3 flex items-center gap-2">
+                                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                                <span class="text-[10px] text-slate-400 font-medium">Busca tu comida favorita...</span>
+                            </div>
+                            
+                            <!-- Banner promo enterprise -->
+                            <div class="mx-5 mb-3 relative bg-gradient-to-br from-rapidito via-yellow-400 to-yellow-500 rounded-2xl p-3 shadow-md overflow-hidden">
+                                <div class="absolute top-0 right-0 w-16 h-16 bg-white/20 rounded-full blur-2xl"></div>
+                                <div class="relative">
+                                    <div class="text-[7px] font-black text-black/70 uppercase tracking-widest mb-1">Oferta del día</div>
+                                    <div class="text-xs font-black text-black leading-tight mb-2">SÚPER COMBO<br>$12.99</div>
+                                    <div class="inline-block bg-black text-rapidito text-[7px] font-black uppercase px-2 py-0.5 rounded">Pedir ahora →</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Categorías horizontales con SVGs -->
+                            <div class="px-5 mb-3 flex gap-2 overflow-hidden">
+                                <div class="flex-shrink-0 flex flex-col items-center">
+                                    <div class="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center mb-1">
+                                        <svg class="w-5 h-5 text-orange-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                                    </div>
+                                    <span class="text-[7px] font-bold text-slate-600">Burgers</span>
+                                </div>
+                                <div class="flex-shrink-0 flex flex-col items-center">
+                                    <div class="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center mb-1">
+                                        <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4l7.53 14H4.47L12 6z"/></svg>
+                                    </div>
+                                    <span class="text-[7px] font-bold text-slate-600">Pizza</span>
+                                </div>
+                                <div class="flex-shrink-0 flex flex-col items-center">
+                                    <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center mb-1">
+                                        <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg>
+                                    </div>
+                                    <span class="text-[7px] font-bold text-slate-600">Sushi</span>
+                                </div>
+                                <div class="flex-shrink-0 flex flex-col items-center">
+                                    <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center mb-1">
+                                        <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-4-4 1.41-1.41L11 13.17l4.59-4.58L17 10l-5 5z"/></svg>
+                                    </div>
+                                    <span class="text-[7px] font-bold text-slate-600">Salud</span>
+                                </div>
+                                <div class="flex-shrink-0 flex flex-col items-center">
+                                    <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center mb-1">
+                                        <svg class="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                                    </div>
+                                    <span class="text-[7px] font-bold text-slate-600">Súper</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Lista restaurantes con miniaturas reales -->
+                            <div class="px-5 space-y-2">
+                                <div class="bg-white rounded-xl p-2 flex gap-2 items-center border border-slate-100 shadow-sm">
+                                    <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
+                                        <img src="images/02-pizza.jpg" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-[10px] font-bold text-slate-900 truncate">Le Pizza Royale</p>
+                                        <div class="flex items-center gap-1 text-[8px] text-slate-400">
+                                            <svg class="w-2 h-2 text-rapidito" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                            <span class="font-bold">4.9</span>
+                                            <span>· 15 min</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-rapidito text-black text-[7px] font-black px-1.5 py-0.5 rounded uppercase">DTO</div>
+                                </div>
+                                <div class="bg-white rounded-xl p-2 flex gap-2 items-center border border-slate-100 shadow-sm">
+                                    <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
+                                        <img src="images/03-sushi.jpg" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-[10px] font-bold text-slate-900 truncate">Sushi Master Pty</p>
+                                        <div class="flex items-center gap-1 text-[8px] text-slate-400">
+                                            <svg class="w-2 h-2 text-rapidito" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                            <span class="font-bold">4.9</span>
+                                            <span>· 20 min</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Bottom nav con SVGs profesionales -->
+                            <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-slate-100 px-6 py-3 flex justify-around items-center">
+                                <svg class="w-5 h-5 text-rapidito" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                                <svg class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                                <svg class="w-5 h-5 text-slate-300" fill="currentColor" viewBox="0 0 24 24"><path d="M7 4V2h10v2h4v2h-2v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6H3V4h4zm2 4v10h2V8H9zm4 0v10h2V8h-2z"/></svg>
+                                <svg class="w-5 h-5 text-slate-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Badge flotante enterprise -->
+                    <div class="absolute -top-6 -right-6 bg-gradient-to-br from-rapidito to-yellow-400 text-black px-4 py-2.5 rounded-2xl shadow-2xl rotate-6 border-2 border-white">
+                        <div class="text-[8px] font-black uppercase tracking-widest opacity-70">Disponible</div>
+                        <div class="text-sm font-black tracking-tight">iOS · Android</div>
+                    </div>
+                    
+                    <!-- Badge inferior -->
+                    <div class="absolute -bottom-2 -left-6 bg-white px-3 py-2 rounded-xl shadow-xl border border-slate-100 -rotate-3">
+                        <div class="flex items-center gap-1.5">
+                            <svg class="w-3 h-3 text-rapidito" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <span class="text-[10px] font-black text-slate-900">4.9</span>
+                            <span class="text-[8px] text-slate-500">App Store</span>
+                        </div>
+                    </div>
+                </div>
+            </div>        </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 py-8">
-        <div class="flex justify-between items-end mb-8">
-            <div>
-                <h2 class="text-2xl font-extrabold">Restaurantes en tu zona</h2>
-                <p class="text-slate-500 text-sm">Pídelo. Tenlo. Rapidito.</p>
-            </div>
-            <a href="#" class="text-rapidito font-bold text-sm border-b-2 border-rapidito">Ver todos</a>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="food-card bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 cursor-pointer group">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500">
-                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold shadow-md">30-45 min</div>
-                    <div class="absolute bottom-4 right-4 bg-rapidito px-2 py-1 rounded-md text-xs font-black">PROMO</div>
-                </div>
-                <div class="p-5">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-bold text-lg">Burger House Panamá</h3>
-                        <span class="text-sm font-bold text-slate-600">⭐ 4.8</span>
+    <!-- FOOTER claro -->
+    <footer class="bg-white text-slate-500 pt-16 pb-10 border-t border-slate-100">
+        <div class="max-w-[1700px] mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="logo.png" alt="Rapiditos" class="h-12 w-auto">
                     </div>
-                    <p class="text-slate-500 text-xs mb-4">Hamburguesas • Americana • $1.50 envío</p>
-                    <div class="flex gap-2">
-                        <span class="bg-slate-100 text-[10px] px-2 py-1 rounded-md font-bold uppercase">Más pedido</span>
-                        <span class="bg-slate-100 text-[10px] px-2 py-1 rounded-md font-bold uppercase">Envío rápido</span>
+                    <p class="text-sm leading-relaxed mb-5 text-slate-600">Liderando la revolución logística de última milla en Panamá con tecnología de grado empresarial.</p>
+                    <div class="flex gap-3">
+                        <div class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center hover:bg-rapidito transition cursor-pointer text-xs font-bold text-slate-700">In</div>
+                        <div class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center hover:bg-rapidito transition cursor-pointer text-xs font-bold text-slate-700">X</div>
+                        <div class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center hover:bg-rapidito transition cursor-pointer text-xs font-bold text-slate-700">Ig</div>
                     </div>
                 </div>
-            </div>
-
-            <div class="food-card bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 cursor-pointer group">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500">
-                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold shadow-md">20-35 min</div>
+                <div>
+                    <h4 class="text-slate-900 font-bold text-sm uppercase tracking-widest mb-6">Corporativo</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Sobre Nosotros</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Rapiditos for Business</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Sala de Prensa</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Carreras</a></li>
+                    </ul>
                 </div>
-                <div class="p-5">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-bold text-lg">Pizza Napolitana</h3>
-                        <span class="text-sm font-bold text-slate-600">⭐ 4.5</span>
-                    </div>
-                    <p class="text-slate-500 text-xs mb-4">Pizzas • Italiana • $0.99 envío</p>
-                    <div class="flex gap-2">
-                        <span class="bg-slate-100 text-[10px] px-2 py-1 rounded-md font-bold uppercase">Popular</span>
-                    </div>
+                <div>
+                    <h4 class="text-slate-900 font-bold text-sm uppercase tracking-widest mb-6">Soporte y Seguridad</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Centro de Ayuda</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Estado del Servicio</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Seguridad de Datos</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Reportar Incidente</a></li>
+                    </ul>
                 </div>
-            </div>
-
-            <div class="food-card bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 cursor-pointer group">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500">
-                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold shadow-md">25-40 min</div>
-                </div>
-                <div class="p-5">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-bold text-lg">Sushi Roll Express</h3>
-                        <span class="text-sm font-bold text-slate-600">⭐ 4.9</span>
-                    </div>
-                    <p class="text-slate-500 text-xs mb-4">Sushi • Japonesa • Envío Gratis</p>
-                    <div class="flex gap-2">
-                        <span class="bg-rapidito text-[10px] px-2 py-1 rounded-md font-bold uppercase">Envío Gratis</span>
-                    </div>
+                <div>
+                    <h4 class="text-slate-900 font-bold text-sm uppercase tracking-widest mb-6">Legal</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Términos de Servicio</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Privacidad</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Cumplimiento PTY</a></li>
+                        <li><a href="#" class="hover:text-slate-900 transition text-slate-600">Cookies</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <footer class="bg-slate-900 text-slate-400 py-12 mt-12">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-            <div>
-                <div class="flex items-center gap-2 text-white mb-6">
-                    <span class="text-rapidito text-2xl font-black italic">⚡R</span>
-                    <span class="text-xl font-extrabold tracking-tighter">RAPIDITOS</span>
-                </div>
-                <p class="text-sm">La red de logística y comida más grande de Panamá.</p>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-4">Descubre</h4>
-                <ul class="text-xs space-y-2">
-                    <li><a href="#" class="hover:text-rapidito">Restaurantes</a></li>
-                    <li><a href="#" class="hover:text-rapidito">Supermercados</a></li>
-                    <li><a href="#" class="hover:text-rapidito">Farmacias</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-4">Socios</h4>
-                <ul class="text-xs space-y-2">
-                    <li><a href="#" class="hover:text-rapidito">Registra tu negocio</a></li>
-                    <li><a href="#" class="hover:text-rapidito">Sé un repartidor</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-4">Ayuda</h4>
-                <ul class="text-xs space-y-2">
-                    <li><a href="#" class="hover:text-rapidito">Soporte 24/7</a></li>
-                    <li><a href="#" class="hover:text-rapidito">Preguntas frecuentes</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest">
-            <p>&copy; 2026 RAPIDITOS ENTERPRISE - PANAMÁ</p>
-            <div class="flex gap-6">
-                <a href="#">Términos</a>
-                <a href="#">Privacidad</a>
+            <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">© 2026 RAPIDITOS ENTERPRISE PLATFORM · PANAMÁ</p>
+                <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 flex items-center gap-1.5"><svg class="w-4 h-3" viewBox="0 0 6 4" xmlns="http://www.w3.org/2000/svg"><rect width="3" height="2" fill="white"/><rect x="3" width="3" height="2" fill="#005AA7"/><rect y="2" width="3" height="2" fill="#D21034"/><rect x="3" y="2" width="3" height="2" fill="white"/><circle cx="1.5" cy="1" r="0.4" fill="#005AA7"/><circle cx="4.5" cy="3" r="0.4" fill="#D21034"/></svg> Construido en Panamá</div>
             </div>
         </div>
     </footer>
