@@ -20,10 +20,37 @@
 
   "compatibility_date": "2026-08-09",
 
-  // Sin "main": esto es un sitio de archivos estaticos, no hay codigo de
-  // servidor. Los archivos viven en la raiz del repositorio; que NO se suben
-  // esta en .assetsignore.
+  // El Worker atiende SOLO lo que no es un archivo de este repositorio.
+  //
+  // Cloudflare mira primero los assets: si la direccion pedida corresponde a
+  // un archivo que existe aca, lo sirve y el Worker NI SE EJECUTA. O sea que
+  // la landing sigue saliendo igual que antes de que este archivo existiera,
+  // y un error en worker.js solo puede afectar direcciones que hoy dan 404.
+  //
+  // Lo que atiende: /r/<slug> (la carta del cliente) y /panel/ (el panel del
+  // restaurante), reenviandolos al backend. Ver worker.js.
+  "main": "worker.js",
+
+  // Los archivos del sitio viven en la raiz; lo que NO se sube esta en
+  // .assetsignore. El "binding" es como worker.js les pide un archivo.
   "assets": {
-    "directory": "./"
+    "directory": "./",
+    "binding": "ASSETS"
+  },
+
+  // Donde vive el backend. VACIA a proposito.
+  //
+  // Mientras este vacia, /r/* y /panel/* se comportan igual que hoy: 404. Eso
+  // permite que todo esto viva en main antes de que el backend exista, sin
+  // cambiarle nada al sitio.
+  //
+  // Se enciende poniendo el valor en Cloudflare (Worker > Settings >
+  // Variables) o cambiandolo aca, con la URL completa y sin barra final:
+  //
+  //     "BACKEND_URL": "https://api.rapiditos.app"
+  //
+  // No es un secreto: es una direccion publica.
+  "vars": {
+    "BACKEND_URL": ""
   }
 }

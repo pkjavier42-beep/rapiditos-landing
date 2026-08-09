@@ -12,3 +12,10 @@ backup-23abril/
 wrangler.jsonc
 .assetsignore
 .gitignore
+
+
+# El codigo del Worker y sus pruebas. Se ejecutan, no se sirven: sin estas
+# lineas quedarian descargables en rapiditos.app/worker.js.
+worker.js
+rutas.mjs
+rutas.test.mjs
