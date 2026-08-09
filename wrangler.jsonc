@@ -1,0 +1,29 @@
+{
+  // Configuracion de Cloudflare Workers para la landing.
+  //
+  // POR QUE NO EXISTIA Y POR QUE HIZO FALTA
+  //
+  // El proyecto esta configurado para desplegar con `npx wrangler versions
+  // upload`, pero el repositorio no tenia ningun archivo de configuracion. Sin
+  // el, wrangler arranca, no sabe que subir, y falla con "Missing entry-point
+  // to Worker script or to assets directory".
+  //
+  // Eso fallaba en CUALQUIER rama, incluida main. No se noto porque el ultimo
+  // cambio de la landing fue el 25 de abril: cuatro meses sin empujar nada, o
+  // sea cuatro meses sin ejercitar la tuberia. La consecuencia real era que
+  // ningun cambio de la landing se podia publicar desde git.
+  //
+  // "name" TIENE que coincidir con el Worker que ya sirve rapiditos.app. Si no
+  // coincidiera, wrangler no actualizaria ese: crearia uno nuevo, el sitio
+  // seguiria igual y quedaria un Worker huerfano.
+  "name": "rapiditos-landing",
+
+  "compatibility_date": "2026-08-09",
+
+  // Sin "main": esto es un sitio de archivos estaticos, no hay codigo de
+  // servidor. Los archivos viven en la raiz del repositorio; que NO se suben
+  // esta en .assetsignore.
+  "assets": {
+    "directory": "./"
+  }
+}
