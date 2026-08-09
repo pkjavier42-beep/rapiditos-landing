@@ -1,0 +1,14 @@
+# Lo que NO se publica, aunque este en el repositorio.
+#
+# La carpeta de assets es la raiz, asi que sin esta lista todo lo que hay acá
+# quedaria accesible desde internet.
+
+# Tres versiones viejas del sitio. Sin esta linea quedarian publicas en
+# rapiditos.app/backup-23abril/index-old.html — nadie las buscaria, pero
+# tampoco tienen por que estar servidas.
+backup-23abril/
+
+# Configuracion del despliegue: no es contenido del sitio.
+wrangler.jsonc
+.assetsignore
+.gitignore
